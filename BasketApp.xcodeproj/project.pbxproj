@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CB3AE2171F24C8EC001BDAAB /* BasketElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3AE2161F24C8EC001BDAAB /* BasketElementType.swift */; };
+		CB3AE2191F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3AE2181F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift */; };
+		CB3AE21A1F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3AE2181F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift */; };
 		CBF81C7F1F24172B00FEE43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF81C7E1F24172B00FEE43A /* AppDelegate.swift */; };
 		CBF81C821F24172B00FEE43A /* BasketApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBF81C801F24172B00FEE43A /* BasketApp.xcdatamodeld */; };
 		CBF81C841F24172B00FEE43A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF81C831F24172B00FEE43A /* MasterViewController.swift */; };
@@ -34,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		CB3AE2161F24C8EC001BDAAB /* BasketElementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketElementType.swift; sourceTree = "<group>"; };
+		CB3AE2181F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyLayerConnectionHandler.swift; sourceTree = "<group>"; };
 		CBF81C7B1F24172B00FEE43A /* BasketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF81C7E1F24172B00FEE43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBF81C811F24172B00FEE43A /* BasketApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BasketApp.xcdatamodel; sourceTree = "<group>"; };
@@ -77,6 +80,15 @@
 			name = Basket;
 			sourceTree = "<group>";
 		};
+		CB3AE21B1F255D98001BDAAB /* ConnectionHandler+Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				CB3AE2181F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift */,
+				CBF81CA31F241B6300FEE43A /* Defaults.swift */,
+			);
+			name = "ConnectionHandler+Defaults";
+			sourceTree = "<group>";
+		};
 		CBF81C721F24172B00FEE43A = {
 			isa = PBXGroup;
 			children = (
@@ -98,11 +110,11 @@
 		CBF81C7D1F24172B00FEE43A /* BasketApp */ = {
 			isa = PBXGroup;
 			children = (
+				CB3AE21B1F255D98001BDAAB /* ConnectionHandler+Defaults */,
 				CB3AE2151F24C8BF001BDAAB /* Basket */,
 				CBF81CA71F241CF100FEE43A /* ViewControllers */,
 				CBF81CA81F241D1900FEE43A /* Assets */,
 				CBF81C7E1F24172B00FEE43A /* AppDelegate.swift */,
-				CBF81CA31F241B6300FEE43A /* Defaults.swift */,
 				CBF81C801F24172B00FEE43A /* BasketApp.xcdatamodeld */,
 			);
 			path = BasketApp;
@@ -247,6 +259,7 @@
 				CB3AE2171F24C8EC001BDAAB /* BasketElementType.swift in Sources */,
 				CBF81CA41F241B6300FEE43A /* Defaults.swift in Sources */,
 				CBF81CAA1F24C36500FEE43A /* BasketElement.swift in Sources */,
+				CB3AE2191F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift in Sources */,
 				CBF81C841F24172B00FEE43A /* MasterViewController.swift in Sources */,
 				CBF81C861F24172B00FEE43A /* DetailViewController.swift in Sources */,
 			);
@@ -257,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF81CAB1F24C36500FEE43A /* BasketElement.swift in Sources */,
+				CB3AE21A1F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift in Sources */,
 				CBF81C991F24172B00FEE43A /* BasketAppTests.swift in Sources */,
 				CBF81CA51F241B6300FEE43A /* Defaults.swift in Sources */,
 			);
