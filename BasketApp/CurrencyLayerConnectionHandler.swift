@@ -13,14 +13,14 @@ class CurrencyConnectionHandler {
     let urlSession: URLSession
     let config: URLSessionConfiguration
     var currencyList: [String: Any]!
-    var exchangeRate: Double = 0.0
+    var exchangeRate = 0.0
     
     init() {
         self.config = .default
         self.urlSession = URLSession(configuration: self.config)
     }
     
-    func loadCurrencyList() {
+    func loadCurrencyList(completionHandler: @escaping ([String: Any]?) -> () ) {
         let dataTask = self.urlSession.dataTask(with: Defaults.loadCurrencyListURL) { data, response, error in
             guard error == nil else {
                 print(error?.localizedDescription ?? "Some error happened.")
@@ -38,6 +38,7 @@ class CurrencyConnectionHandler {
             }
             
             self.currencyList = json["currencies"] as! [String : Any]
+            completionHandler(self.currencyList)
         }
         
         dataTask.resume()
@@ -54,7 +55,7 @@ class CurrencyConnectionHandler {
         }
     }
     
-    func loadExchangeRate(from sourceCurrency: String, to destinationCurrency: String) {
+    func loadExchangeRate(from sourceCurrency: String = "USD", to destinationCurrency: String, completionHandler: @escaping (Double) -> ()) {
         let dataTask = self.urlSession.dataTask(with: Defaults.loadLiveCurrenciesURL) { data, response, error in
             guard error == nil else {
                 print(error?.localizedDescription ?? "Some error happened during the request.")
@@ -78,6 +79,7 @@ class CurrencyConnectionHandler {
             }
             
             self.exchangeRate = rate
+            completionHandler(rate)
         }
         
         dataTask.resume()

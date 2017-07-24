@@ -51,6 +51,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAD-wK-k6G">
+                                <rect key="frame" x="111" y="386" width="152" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add to Basket"/>
+                                <connections>
+                                    <action selector="addToBasket:" destination="JEX-9P-axG" eventType="touchUpInside" id="MjJ-Sc-xoH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -121,10 +130,10 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Basket" id="Zdf-7t-Un8">
+                    <navigationItem key="navigationItem" title="List" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" title="Checkout" id="Hvl-Au-8qt">
                             <connections>
-                                <segue destination="OW4-Ta-II2" kind="show" id="LnR-N2-TPH"/>
+                                <segue destination="OW4-Ta-II2" kind="show" identifier="checkout" id="LnR-N2-TPH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -142,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="LVN-35-Ayz">
-                            <rect key="frame" x="0.0" y="72" width="375" height="200"/>
+                            <rect key="frame" x="0.0" y="72" width="375" height="296"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sum Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVo-Uc-vDF">
@@ -170,11 +179,20 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMt-Yy-67h">
+                                    <rect key="frame" x="140" y="213" width="95" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                    <state key="normal" title="Convert"/>
+                                    <connections>
+                                        <action selector="convertPrice:" destination="myk-CC-eJQ" eventType="touchUpInside" id="lgQ-6d-qSP"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="U5z-5o-ovu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="U5z-5o-ovu">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U5z-5o-ovu" id="Et9-Bx-S30">
@@ -189,6 +207,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="IPK-Mm-27U"/>
+                    <connections>
+                        <outlet property="currencyPicker" destination="b2S-JI-sCI" id="DHb-Dx-hlo"/>
+                        <outlet property="sumPriceLabel" destination="u8N-7j-3UC" id="lFE-TZ-WgZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYa-dA-Un7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
