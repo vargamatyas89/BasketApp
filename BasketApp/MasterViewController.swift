@@ -46,7 +46,9 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow?.item {
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = self.basket[indexPath]
+                let basketElement = self.basket[indexPath]
+                controller.detailItem = basketElement
+                controller.title = controller.detailItem?.name
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }

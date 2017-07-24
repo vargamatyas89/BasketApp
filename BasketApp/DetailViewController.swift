@@ -11,13 +11,16 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var priceLabel: UILabel!
 
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             if let label = detailDescriptionLabel {
-                label.text = detail.name.capitalized
+                label.text = detail.currency.uppercased()
+            }
+            if let label2 = priceLabel {
+                label2.text = String(describing: detail.price)
             }
         }
     }
