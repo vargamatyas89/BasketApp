@@ -10,13 +10,12 @@ import XCTest
 @testable import BasketApp
 
 class BasketAppTests: XCTestCase {
-    
-    private let mockJSONPositiveResult = true
-    private let mockJSONNegativeResult = false
+    private var currencyConnectionHandler: CurrencyConnectionHandler!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.setConnectionHandler()
     }
     
     override func tearDown() {
@@ -24,20 +23,43 @@ class BasketAppTests: XCTestCase {
         super.tearDown()
     }
     
-    func testDownloadCurrencies() {
-        let currencyConnectionHandler = CurrencyConnectionHandler()
+    private func setConnectionHandler() {
+        self.currencyConnectionHandler = CurrencyConnectionHandler()
+    }
+    
+    func testDownloadCurrenciesSuccessfull() {
         let expectation = self.expectation(description: "Download successful")
         
-        currencyConnectionHandler.loadCurrencyList { json in
-            XCTAssertNil(json, "Failed, there is no json file downloaded.")
+        self.currencyConnectionHandler.loadCurrencyList { json in
+            XCTAssertNotNil(json, "Failed, there is no json file downloaded.")
             expectation.fulfill()
-//            if let json = json {
-//                XCTAssertTrue(json["success"] as! Bool == self.mockJSONPositiveResult, "The request returned with unsuccess.")
-//                XCTAssertFalse(json["success"] as! Bool == self.mockJSONNegativeResult, "The request returned with unsuccess.")
-//            }
         }
         
         self.waitForExpectations(timeout: 10)
     }
+    
+    func testDownloadExchangeRateSuccessful() {
+        let expectation = self.expectation(description: "Exchange rate download is successful")
+        
+        self.currencyConnectionHandler.loadExchangeRate(to: "EUR") { rate in
+            XCTAssertNotEqual(rate, 0, "Failed, the exchange rate is zero.")
+            expectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 10)
+    }
+    
+    func testDownloadExchangeRateUnsuccessful() {
+        let expectation = self.expectation(description: "Exchange rate download is not successful")
+        
+        self.currencyConnectionHandler.loadExchangeRate(from: "CHF", to: "EUR") { rate in
+            XCTAssertNil(rate, "Failed, no exchange rate found.")
+            expectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 10)
+    }
+    
+    
     
 }

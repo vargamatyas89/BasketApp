@@ -15,11 +15,16 @@ class BasketCheckoutViewController: UITableViewController, BasketProperties {
     
     @IBAction func convertPrice(_ sender: Any) {
         self.exchangeHandler.loadExchangeRate(to: self.selectedCurrency) { exchangeRate in
-            self.sumPrice *= exchangeRate
-            DispatchQueue.main.async {
-                self.sumPriceLabel.text = self.sumPrice.description
-                self.showCurrencyAlert()
+            if let exchangeRate = exchangeRate {
+                self.sumPrice *= exchangeRate
+                DispatchQueue.main.async {
+                    self.sumPriceLabel.text = self.sumPrice.description
+                    self.showCurrencyAlert()
+                }
+            } else {
+                print("ExchangeRate is nil!")
             }
+            
         }
     }
     
@@ -62,7 +67,7 @@ class BasketCheckoutViewController: UITableViewController, BasketProperties {
     
     private func showCurrencyAlert() {
         if self.selectedCurrency != "USD" {
-            let alert = UIAlertController(title: "Information", message: "The currency layer API restricts the API usage for this account, only the default USD source is enabled", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Information", message: "The currency layer API restricts the API usage for this account, only the default USD source is enabled. The value is converted, but the set back for this behavior is not implemented yet.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { _ in
                 self.dismiss(animated: true, completion: nil)
             }

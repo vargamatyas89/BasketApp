@@ -24,6 +24,7 @@ class CurrencyConnectionHandler {
         let dataTask = self.urlSession.dataTask(with: Defaults.loadCurrencyListURL) { data, response, error in
             guard error == nil else {
                 print(error?.localizedDescription ?? "Some error happened.")
+                completionHandler(nil)
                 return
             }
             
@@ -34,6 +35,7 @@ class CurrencyConnectionHandler {
                 } else {
                     print("Some strange error happened.")
                 }
+                completionHandler(nil)
                 return
             }
             
@@ -55,10 +57,11 @@ class CurrencyConnectionHandler {
         }
     }
     
-    func loadExchangeRate(from sourceCurrency: String = "USD", to destinationCurrency: String, completionHandler: @escaping (Double) -> ()) {
+    func loadExchangeRate(from sourceCurrency: String = "USD", to destinationCurrency: String, completionHandler: @escaping (Double?) -> ()) {
         let dataTask = self.urlSession.dataTask(with: Defaults.loadLiveCurrenciesURL) { data, response, error in
             guard error == nil else {
                 print(error?.localizedDescription ?? "Some error happened during the request.")
+                completionHandler(nil)
                 return
             }
             
@@ -69,12 +72,14 @@ class CurrencyConnectionHandler {
                 } else {
                     print("Some strange error happened.")
                 }
+                completionHandler(nil)
                 return
             }
             
             let exchangeRateSearchString = sourceCurrency + destinationCurrency
             guard let currencies = json["quotes"] as? [String: Double], let rate = currencies[exchangeRateSearchString] else {
                 print("Unfortunately exchange rate not found.")
+                completionHandler(nil)
                 return
             }
             
