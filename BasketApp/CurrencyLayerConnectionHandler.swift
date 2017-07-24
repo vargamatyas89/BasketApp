@@ -73,7 +73,7 @@ class CurrencyConnectionHandler {
             }
             
             let exchangeRateSearchString = sourceCurrency + destinationCurrency
-            guard let currencies = json["currencies"] as? [String: Double], let rate = currencies[exchangeRateSearchString] else {
+            guard let currencies = json["quotes"] as? [String: Double], let rate = currencies[exchangeRateSearchString] else {
                 print("Unfortunately exchange rate not found.")
                 return
             }

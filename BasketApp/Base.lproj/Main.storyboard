@@ -142,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Checkout-->
         <scene sceneID="I6w-F7-eoY">
             <objects>
                 <tableViewController id="myk-CC-eJQ" customClass="BasketCheckoutViewController" customModule="BasketApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -206,7 +206,7 @@
                             <outlet property="delegate" destination="myk-CC-eJQ" id="jt8-z7-Oeb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="IPK-Mm-27U"/>
+                    <navigationItem key="navigationItem" title="Checkout" id="IPK-Mm-27U"/>
                     <connections>
                         <outlet property="currencyPicker" destination="b2S-JI-sCI" id="DHb-Dx-hlo"/>
                         <outlet property="sumPriceLabel" destination="u8N-7j-3UC" id="lFE-TZ-WgZ"/>

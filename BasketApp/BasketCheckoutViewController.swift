@@ -18,6 +18,7 @@ class BasketCheckoutViewController: UITableViewController, BasketProperties {
             self.sumPrice *= exchangeRate
             DispatchQueue.main.async {
                 self.sumPriceLabel.text = self.sumPrice.description
+                self.showCurrencyAlert()
             }
         }
     }
@@ -25,22 +26,18 @@ class BasketCheckoutViewController: UITableViewController, BasketProperties {
     var basket: [BasketElement]!
     var currencyList: [String]!
     var exchangeHandler: CurrencyConnectionHandler!
-    fileprivate var selectedCurrency: String! = "USD"
+    // The currency layer API restricts other sources for my account, only the default USD works
+    fileprivate var selectedCurrency: String!
     private var sumPrice = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.currencyPicker.delegate = self
         self.currencyPicker.dataSource = self
-        self.sumPriceLabel.text = self.sumPrice.description
+        self.calculateSumPrice()
+        self.sumPriceLabel.text = String(describing: self.sumPrice)
         self.currencyList = self.currencyList.sorted()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.basket = nil
-        self.currencyList = nil
-        self.exchangeHandler = nil
-        super.viewDidDisappear(animated)
+        self.selectedCurrency = self.currencyList.first!.uppercased()
     }
     
     private func calculateSumPrice() {
@@ -48,6 +45,29 @@ class BasketCheckoutViewController: UITableViewController, BasketProperties {
             for element in basket {
                 self.sumPrice += element.price
             }
+        }
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: "The basket is not empty!", message: "Do you want to remove the content of the basket?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.basket.removeAll()
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showCurrencyAlert() {
+        if self.selectedCurrency != "USD" {
+            let alert = UIAlertController(title: "Information", message: "The currency layer API restricts the API usage for this account, only the default USD source is enabled", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -65,15 +85,7 @@ class BasketCheckoutViewController: UITableViewController, BasketProperties {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-        } else if editingStyle == .insert {
-            // currently nothing to do
-        }
+        return false
     }
     
     private func configureCell(_ cell: UITableViewCell, with element: BasketElement) {

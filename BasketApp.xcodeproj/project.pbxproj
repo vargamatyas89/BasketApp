@@ -14,6 +14,7 @@
 		CB3AE21E1F25721C001BDAAB /* BasketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3AE21C1F25721C001BDAAB /* BasketCheckoutViewController.swift */; };
 		CB3AE2201F258283001BDAAB /* BasketProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3AE21F1F258283001BDAAB /* BasketProperties.swift */; };
 		CB3AE2211F258283001BDAAB /* BasketProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3AE21F1F258283001BDAAB /* BasketProperties.swift */; };
+		CB3AE2221F25AC03001BDAAB /* BasketElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3AE2161F24C8EC001BDAAB /* BasketElementType.swift */; };
 		CBF81C7F1F24172B00FEE43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF81C7E1F24172B00FEE43A /* AppDelegate.swift */; };
 		CBF81C821F24172B00FEE43A /* BasketApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBF81C801F24172B00FEE43A /* BasketApp.xcdatamodeld */; };
 		CBF81C841F24172B00FEE43A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF81C831F24172B00FEE43A /* MasterViewController.swift */; };
@@ -283,6 +284,7 @@
 				CB3AE21A1F255D8B001BDAAB /* CurrencyLayerConnectionHandler.swift in Sources */,
 				CB3AE2211F258283001BDAAB /* BasketProperties.swift in Sources */,
 				CB3AE21E1F25721C001BDAAB /* BasketCheckoutViewController.swift in Sources */,
+				CB3AE2221F25AC03001BDAAB /* BasketElementType.swift in Sources */,
 				CBF81C991F24172B00FEE43A /* BasketAppTests.swift in Sources */,
 				CBF81CA51F241B6300FEE43A /* Defaults.swift in Sources */,
 			);

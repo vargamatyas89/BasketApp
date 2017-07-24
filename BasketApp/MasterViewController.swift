@@ -12,13 +12,15 @@ import CoreData
 class MasterViewController: UITableViewController, BasketProperties {
 
     var detailViewController: DetailViewController!
-    var basket: [BasketElement]!
+    var basket: [BasketElement]! = [BasketElement]()
     var currencyList: [String]!
     fileprivate var initialBasket: [BasketElement]!
     fileprivate let connectionHandler = CurrencyConnectionHandler()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
 
         if let split = splitViewController {
@@ -37,8 +39,6 @@ class MasterViewController: UITableViewController, BasketProperties {
                 self.currencyList = self.expandCurrenciesFromDictionary(json)
             }
         }
-        
-        self.basket = [BasketElement]()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,10 +52,12 @@ class MasterViewController: UITableViewController, BasketProperties {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow?.item {
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                
                 let basketElement = self.initialBasket[indexPath]
                 controller.basketElement = basketElement
                 controller.title = controller.basketElement?.name
                 controller.basket = self.basket
+                controller.delegate = self
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -81,15 +83,7 @@ class MasterViewController: UITableViewController, BasketProperties {
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-        } else if editingStyle == .insert {
-            // currently nothing to do
-        }
+        return false
     }
     
     private func configureCell(_ cell: UITableViewCell, with element: BasketElement) {
@@ -119,6 +113,14 @@ extension MasterViewController {
             result.append(key)
         }
         return result
+    }
+    
+    public func updateBasket(with element: BasketElement) {
+        if self.basket.contains(element) {
+            print("The basket already contains this element.")
+            return
+        }
+        self.basket.append(element)
     }
 }
 

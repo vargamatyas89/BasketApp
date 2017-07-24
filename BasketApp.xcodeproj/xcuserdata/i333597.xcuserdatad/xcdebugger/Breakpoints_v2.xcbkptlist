@@ -9,14 +9,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BasketApp/DetailViewController.swift"
-            timestampString = "522557524.960995"
+            filePath = "BasketAppTests/BasketAppTests.swift"
+            timestampString = "522563784.406983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "addToBasket(_:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "testDownloadCurrencies()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BasketAppTests.BasketAppTests.(testDownloadCurrencies () -&gt; ()).(closure #1)"
+                  moduleName = "BasketAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i333597/github/BasketApp/BasketAppTests/BasketAppTests.swift"
+                  timestampString = "522563848.89897"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BasketAppTests.BasketAppTests.(testDownloadCurrencies () -&gt; ()).(closure #1).(implicit closure #1)"
+                  moduleName = "BasketAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i333597/github/BasketApp/BasketAppTests/BasketAppTests.swift"
+                  timestampString = "522563848.900717"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BasketAppTests.BasketAppTests.(testDownloadCurrencies () -&gt; ()).(closure #1).(implicit closure #2)"
+                  moduleName = "BasketAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i333597/github/BasketApp/BasketAppTests/BasketAppTests.swift"
+                  timestampString = "522563848.9022"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,14 +72,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BasketApp/DetailViewController.swift"
-            timestampString = "522557524.960995"
+            filePath = "BasketAppTests/BasketAppTests.swift"
+            timestampString = "522563841.014957"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "basketElement"
-            landmarkType = "24">
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "testDownloadCurrencies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BasketAppTests.BasketAppTests.testDownloadCurrencies () -&gt; ()"
+                  moduleName = "BasketAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i333597/github/BasketApp/BasketAppTests/BasketAppTests.swift"
+                  timestampString = "522563848.904838"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "167">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BasketAppTests.BasketAppTests.(testDownloadCurrencies () -&gt; ()).(closure #1)"
+                  moduleName = "BasketAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i333597/github/BasketApp/BasketAppTests/BasketAppTests.swift"
+                  timestampString = "522563848.907094"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

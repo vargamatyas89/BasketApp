@@ -11,6 +11,9 @@ import XCTest
 
 class BasketAppTests: XCTestCase {
     
+    private let mockJSONPositiveResult = true
+    private let mockJSONNegativeResult = false
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,16 +24,20 @@ class BasketAppTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testDownloadCurrencies() {
+        let currencyConnectionHandler = CurrencyConnectionHandler()
+        let expectation = self.expectation(description: "Download successful")
+        
+        currencyConnectionHandler.loadCurrencyList { json in
+            XCTAssertNil(json, "Failed, there is no json file downloaded.")
+            expectation.fulfill()
+//            if let json = json {
+//                XCTAssertTrue(json["success"] as! Bool == self.mockJSONPositiveResult, "The request returned with unsuccess.")
+//                XCTAssertFalse(json["success"] as! Bool == self.mockJSONNegativeResult, "The request returned with unsuccess.")
+//            }
         }
+        
+        self.waitForExpectations(timeout: 10)
     }
     
 }
